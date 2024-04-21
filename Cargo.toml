@@ -1,0 +1,11 @@
+[package]
+name = "bevy_spawnable"
+version = "0.1.0"
+edition = "2021"
+
+[dev-dependencies]
+bevy = { version = "0.13" }
+
+[dependencies]
+bevy = { version = "0.13", default-features = false, features = [
+] }
