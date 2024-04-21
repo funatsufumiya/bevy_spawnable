@@ -2,6 +2,9 @@
 name = "bevy_spawnable"
 version = "0.1.0"
 edition = "2021"
+repository = "https://github.com/funatsufumiya/bevy_spawnable"
+description = "tiny spawn utility for Bevy, to encapsulate spawn logic"
+license = "WTFPL"
 
 [dev-dependencies]
 bevy = { version = "0.13" }
