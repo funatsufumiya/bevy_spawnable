@@ -14,3 +14,9 @@ A tiny spawn utility for bevy. This crate will helps you:
 ## Usage
 
 see [examples](examples)
+
+## Versions
+
+| bevy | bevy_spawnable      |
+|------|---------------------|
+| 0.13 | 0.1                 |
