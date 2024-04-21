@@ -1,6 +1,8 @@
 use bevy::{ecs::system::EntityCommands, prelude::*};
 use bevy_spawnable::*;
 
+// This example shows how to give assets to the builders generates spawnables
+
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
@@ -58,6 +60,8 @@ impl Spawnable for MyText {
 fn setup_builders (
     mut commands: Commands,
 ) {
+    // you can give any assets to the builders here
+
     let builders = TextBuilders {
         text_type_a: MyTextBuilder {
             color: Color::WHITE,
