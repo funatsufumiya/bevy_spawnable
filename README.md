@@ -9,7 +9,9 @@ A tiny spawn utility for bevy. This crate will helps you:
 - encapsulate the spawn logic into a single function or object.
 - no worry about builder is `Commands` or `ChildBuilder`.
 
-(If you need more detailed spawn utility, consider [moonshine_spawn](https://github.com/Zeenobit/moonshine_spawn) as an alternative.)
+You can use this crate as a kind of like Unity's prefab as a code object, or builder to create entities which have complex structure.
+
+( If you need more detailed spawn utility, consider [moonshine_spawn](https://github.com/Zeenobit/moonshine_spawn) as an alternative. )
 
 ## Usage
 
