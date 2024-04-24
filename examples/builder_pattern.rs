@@ -40,7 +40,7 @@ pub struct MyText {
 }
 
 impl Spawnable for MyText {
-    fn spawn<'a>(&self, builder: &'a mut impl GenericBuilder) -> EntityCommands<'a> {
+    fn spawn<'a>(&mut self, builder: &'a mut impl GenericBuilder) -> EntityCommands<'a> {
         builder.spawn(
             TextBundle::from_section(
                 self.text.clone(),
@@ -97,8 +97,8 @@ fn setup(
         },
         ..default()
     }).with_children(|r| {
-        r.spawns(&builders.text_type_a.text("Text A".to_string()));
-        r.spawns(&builders.text_type_b.text("Text B".to_string()));
-        r.spawns(&builders.text_type_c.text("Text C".to_string()));
+        r.spawns(&mut builders.text_type_a.text("Text A".to_string()));
+        r.spawns(&mut builders.text_type_b.text("Text B".to_string()));
+        r.spawns(&mut builders.text_type_c.text("Text C".to_string()));
     });
 }

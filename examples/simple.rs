@@ -13,7 +13,7 @@ pub struct Hello {
 }
 
 impl Spawnable for Hello {
-    fn spawn<'a>(&self, builder: &'a mut impl GenericBuilder) -> EntityCommands<'a> {
+    fn spawn<'a>(&mut self, builder: &'a mut impl GenericBuilder) -> EntityCommands<'a> {
         let mut e = builder.spawn(NodeBundle {
             style: Style {
                 width: Val::Percent(100.),
@@ -49,7 +49,7 @@ impl Spawnable for Hello {
 fn setup(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
 
-    commands.spawns(&Hello {
+    commands.spawns(&mut Hello {
         text: "Hello, Bevy!".to_string()
     });
 }
