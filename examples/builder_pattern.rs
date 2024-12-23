@@ -68,11 +68,13 @@ fn setup_builders (
             font_size: 40.0,
         },
         text_type_b: MyTextBuilder {
-            color: Color::RED,
+            // color: Color::RED,
+            color: Color::linear_rgb(1.0, 0.0, 0.0),
             font_size: 50.0,
         },
         text_type_c: MyTextBuilder {
-            color: Color::BLUE,
+            // color: Color::BLUE,
+            color: Color::linear_rgb(0.0, 0.0, 1.0),
             font_size: 60.0,
         },
     };
