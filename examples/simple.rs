@@ -14,40 +14,34 @@ pub struct Hello {
 
 impl Spawnable for Hello {
     fn spawn<'a>(&mut self, builder: &'a mut impl GenericBuilder) -> EntityCommands<'a> {
-        let mut e = builder.spawn(NodeBundle {
-            style: Style {
-                width: Val::Percent(100.),
-                height: Val::Percent(100.),
-                flex_direction: FlexDirection::Column,
-                justify_content: JustifyContent::Center,
-                align_items: AlignItems::Center,
-                ..default()
-            },
+        let mut e = builder.spawn(Node {
+            width: Val::Percent(100.),
+            height: Val::Percent(100.),
+            flex_direction: FlexDirection::Column,
+            justify_content: JustifyContent::Center,
+            align_items: AlignItems::Center,
             ..default()
         });
 
         e.with_children(|root| {
-            root.spawn(
-                TextBundle::from_section(
-                    self.text.clone(),
-                    TextStyle {
-                        font_size: 50.0,
-                        color: Color::WHITE,
-                        ..default()
-                    })
-                    .with_text_justify(JustifyText::Center)
-                    .with_style(Style {
-                        ..default()
-                    })
-            );
+            bevy::prelude::ChildBuild::spawn(root, (
+                Text::new(self.text.clone()),
+                TextFont {
+                    font_size: 50.0,
+                    ..default()
+                },
+                TextColor (
+                    Color::WHITE.into()
+                ),
+                TextLayout::new_with_justify(JustifyText::Center)
+            ));
         });
 
         e
-    }
-}
+    }}
 
 fn setup(mut commands: Commands) {
-    commands.spawn(Camera2dBundle::default());
+    commands.spawn(Camera2d::default());
 
     commands.spawns(&mut Hello {
         text: "Hello, Bevy!".to_string()

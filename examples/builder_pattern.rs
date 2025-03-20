@@ -41,19 +41,17 @@ pub struct MyText {
 
 impl Spawnable for MyText {
     fn spawn<'a>(&mut self, builder: &'a mut impl GenericBuilder) -> EntityCommands<'a> {
-        builder.spawn(
-            TextBundle::from_section(
-                self.text.clone(),
-                TextStyle {
-                    font_size: self.font_size,
-                    color: self.color,
-                    ..default()
-                })
-                .with_text_justify(JustifyText::Center)
-                .with_style(Style {
-                    ..default()
-                })
-        )
+        builder.spawn((
+            Text::new(self.text.clone()),
+            TextFont {
+                font_size: self.font_size,
+                ..default()
+            },
+            TextColor (
+                self.color.into()
+            ),
+            TextLayout::new_with_justify(JustifyText::Center)
+        ))
     }
 }
 
@@ -86,17 +84,14 @@ fn setup(
     mut commands: Commands,
     builders: Res<TextBuilders>,
 ) {
-    commands.spawn(Camera2dBundle::default());
+    commands.spawn(Camera2d::default());
 
-    commands.spawn(NodeBundle {
-        style: Style {
-            width: Val::Percent(100.),
-            height: Val::Percent(100.),
-            flex_direction: FlexDirection::Column,
-            justify_content: JustifyContent::Center,
-            align_items: AlignItems::Center,
-            ..default()
-        },
+    commands.spawn(Node {
+        width: Val::Percent(100.),
+        height: Val::Percent(100.),
+        flex_direction: FlexDirection::Column,
+        justify_content: JustifyContent::Center,
+        align_items: AlignItems::Center,
         ..default()
     }).with_children(|r| {
         r.spawns(&mut builders.text_type_a.text("Text A".to_string()));

@@ -32,6 +32,7 @@ impl GenericBuilder for Commands<'_, '_> {
 
 impl GenericBuilder for ChildBuilder<'_> {
     fn spawn<T: Bundle>(&mut self, bundle: T) -> EntityCommands {
-        self.spawn(bundle)
+        // self.spawn(bundle)
+        bevy::prelude::ChildBuild::spawn(self, bundle)
     }
 }
