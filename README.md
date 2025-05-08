@@ -75,6 +75,7 @@ fn setup(mut commands: Commands) {
 
 | bevy | bevy_spawnable      |
 |------|---------------------|
+| 0.16 | 0.4                 |
 | 0.15 | 0.3                 |
 | 0.14 | 0.2                 |
 | 0.13 | 0.1                 |
