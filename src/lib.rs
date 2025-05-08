@@ -1,4 +1,4 @@
-use bevy::{ecs::system::EntityCommands, prelude::*};
+use bevy::{ecs::{relationship::{RelatedSpawnerCommands, Relationship}, system::EntityCommands}, prelude::*};
 
 pub trait Spawnable {
     fn spawn<'a>(&mut self, builder: &'a mut impl GenericBuilder) -> EntityCommands<'a>;
@@ -14,7 +14,7 @@ impl SpawnableExt for Commands<'_, '_> {
     }
 }
 
-impl SpawnableExt for ChildBuilder<'_> {
+impl<R: Relationship> SpawnableExt for RelatedSpawnerCommands<'_, R> {
     fn spawns(&mut self, spawnable: &mut impl Spawnable) -> EntityCommands {
         spawnable.spawn(self)
     }
@@ -30,9 +30,8 @@ impl GenericBuilder for Commands<'_, '_> {
     }
 }
 
-impl GenericBuilder for ChildBuilder<'_> {
+impl<R: Relationship> GenericBuilder for RelatedSpawnerCommands<'_, R> {
     fn spawn<T: Bundle>(&mut self, bundle: T) -> EntityCommands {
-        // self.spawn(bundle)
-        bevy::prelude::ChildBuild::spawn(self, bundle)
+        self.spawn(bundle)
     }
 }

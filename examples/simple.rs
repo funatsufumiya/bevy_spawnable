@@ -24,7 +24,7 @@ impl Spawnable for Hello {
         });
 
         e.with_children(|root| {
-            bevy::prelude::ChildBuild::spawn(root, (
+            root.spawn((
                 Text::new(self.text.clone()),
                 TextFont {
                     font_size: 50.0,
