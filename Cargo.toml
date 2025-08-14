@@ -1,10 +1,10 @@
 [package]
 name = "bevy_spawnable"
-version = "0.4.0"
+version = "0.4.1"
 edition = "2021"
 repository = "https://github.com/funatsufumiya/bevy_spawnable"
 description = "tiny spawn utility for Bevy, to encapsulate spawn logic"
-license = "WTFPL"
+license = "WTFPL OR 0BSD"
 
 [dev-dependencies]
 bevy = { version = "^0.16" }

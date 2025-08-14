@@ -79,3 +79,7 @@ fn setup(mut commands: Commands) {
 | 0.15 | 0.3                 |
 | 0.14 | 0.2                 |
 | 0.13 | 0.1                 |
+
+## License
+
+Dual licensed under WTFPL and/or 0BSD.
