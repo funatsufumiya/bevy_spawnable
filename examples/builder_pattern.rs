@@ -50,7 +50,7 @@ impl Spawnable for MyText {
             TextColor (
                 self.color.into()
             ),
-            TextLayout::new_with_justify(JustifyText::Center)
+            TextLayout::new_with_justify(Justify::Center)
         ))
     }
 }
