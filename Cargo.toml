@@ -7,8 +7,8 @@ description = "tiny spawn utility for Bevy, to encapsulate spawn logic"
 license = "WTFPL OR 0BSD"
 
 [dev-dependencies]
-bevy = { version = "^0.17" }
+bevy = { version = "^0.18.0-rc.2" }
 
 [dependencies]
-bevy = { version = "^0.17", default-features = false, features = [
+bevy = { version = "^0.18.0-rc.2", default-features = false, features = [
 ] }
